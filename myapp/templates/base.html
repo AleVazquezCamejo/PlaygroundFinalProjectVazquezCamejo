@@ -31,13 +31,13 @@
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/myapp/About">About</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/myapp/Post">Sample Post</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/myapp/Contact">Contact</a></li>
-                        {% comment %} {% if user.is_authenticated %} {% endcomment %}
+                        {% if user.is_authenticated %}
 
                          <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/myapp/Logout">Logout</a></li>
-                        {% comment %} {% else %} {% endcomment %}
+                        {% else %}
 
                          <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/myapp/Login">Login</a></li>
-                        {% comment %} {% endif %} {% endcomment %}
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -48,60 +48,61 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Info Economia e Inversiones</h1>
-                            <span class="subheading">Noticias e informacion de Argentina y el Mundo</span>
+                            {% block Titulo %}
+                            {% comment %} <h1>Clean Blog</h1> {% endcomment %}
+                        
+                            {% comment %} <span class="subheading">A Blog Theme by Start Bootstrap</span> {% endcomment %}
+                            {% endblock Titulo %}
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-        {% block mensaje %}
-        {% endblock mensaje %}
         <!-- Main Content-->
-        <div class="container px-4 px-lg-5">
+        {% comment %} <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="col-md-10 col-lg-8 col-xl-7"> {% endcomment %}
                     <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="/myapp/Post1">
-                            <h2 class="post-title">Expoagro 2024 Nuevo dolor de cabeza para los productores: ¿vuelve La Niña?</h2>
-                            <h3 class="post-subtitle">La posibilidad de que se produzca un nuevo período de escasez de lluvias fue pronosticada por el meteorólogo Leonardo De Benedictis. El profesional se presentó en Expoagro 2024 sumando sus conocimientos luego del panel "Tiempo y Clima" con técnicos del Servicio Meteorológico Nacional y CREA.</h3>
+                    {% comment %} <div class="post-preview">
+                        <a href="post.html">
+                            <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
+                            <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">El Economista</a>
-                            on March 6, 2023
+                            <a href="#!">Start Bootstrap</a>
+                            on September 24, 2023
                         </p>
-                    </div>
+                    </div> {% endcomment %}
                     <!-- Divider-->
-                    <hr class="my-4" />
+                    {% comment %} <hr class="my-4" /> {% endcomment %}
                     <!-- Post preview-->
-                    <div class="post-preview">
+                    {% comment %} <div class="post-preview">
                         <a href="post.html"><h2 class="post-title">I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</h2></a>
                         <p class="post-meta">
                             Posted by
                             <a href="#!">Start Bootstrap</a>
                             on September 18, 2023
                         </p>
-                    </div>
+                    </div> {% endcomment %}
                     <!-- Divider-->
-                    <hr class="my-4" />
+                    {% comment %} <hr class="my-4" /> {% endcomment %}
                     <!-- Post preview-->
-                    <div class="post-preview">
+                    {% comment %} <div class="post-preview">
                         <a href="post.html">
                             <h2 class="post-title">Science has not yet mastered prophecy</h2>
                             <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3>
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">El Economista</a>
+                            <a href="#!">Start Bootstrap</a>
                             on August 24, 2023
                         </p>
-                    </div>
+                    </div> {% endcomment %}
                     <!-- Divider-->
-                    <hr class="my-4" />
+                    {% comment %} <hr class="my-4" /> {% endcomment %}
                     <!-- Post preview-->
-                    <div class="post-preview">
+                    {% comment %} <div class="post-preview">
                         <a href="post.html">
                             <h2 class="post-title">Failure is not an option</h2>
                             <h3 class="post-subtitle">Many say exploration is part of our destiny, but it’s actually our duty to future generations.</h3>
@@ -111,14 +112,16 @@
                             <a href="#!">Start Bootstrap</a>
                             on July 8, 2023
                         </p>
-                    </div>
+                    </div> {% endcomment %}
                     <!-- Divider-->
-                    <hr class="my-4" />
+                    {% comment %} <hr class="my-4" /> {% endcomment %}
                     <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+                    {% comment %} <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
                 </div>
             </div>
-        </div>
+        </div> {% endcomment %}
+        {% block body %}
+        {% endblock body %}
         <!-- Footer-->
         <footer class="border-top">
             <div class="container px-4 px-lg-5">

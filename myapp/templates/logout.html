@@ -1,0 +1,19 @@
+
+<form id="logout-form" method="post" action="{% url 'admin:logout' %}">
+    {% csrf_token %}
+    <button type="submit">{% translate "Log out" %}</button>
+  </form>
+
+
+{% comment %} {% extends "index.html" %}
+
+{% load static %}
+
+{% block mensaje %}
+
+
+
+<h1>Te has deslogueado</h1>
+
+
+{% endblock mensaje %} {% endcomment %}
