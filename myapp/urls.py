@@ -2,6 +2,9 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 from django.contrib.auth.views import LogoutView
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('Index', views.index, name="index"),
@@ -20,3 +23,5 @@ urlpatterns = [
     path('cambiarClave', views.CambiarClave.as_view(), name="CambiarClave"), 
 
 ]    
+
+urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
