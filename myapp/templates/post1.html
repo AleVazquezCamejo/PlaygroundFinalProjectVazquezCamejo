@@ -2,7 +2,9 @@
 
 {% load static %}
 
+
 {% block titulo %}
+{% comment %} {% if request.user.is_authenticated %} {% endcomment %}
                             
     <h1>Nuevo dolor de cabeza para los productores: ¿vuelve La Niña?</h1>
     <h2 class="subheading">La posibilidad de que se produzca un nuevo período de escasez de lluvias fue pronosticada por el meteorólogo Leonardo De Benedictis. El profesional se presentó en Expoagro 2024 sumando sus conocimientos luego del panel "Tiempo y Clima" con técnicos del Servicio Meteorológico Nacional y CREA.</h2>
@@ -42,5 +44,9 @@
                             &middot; Images by
                             <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a> {% endcomment %}
         
-{% endblock nota %}
 
+{% comment %} {% else %}
+<p>Debe loguearse para ver este contenido.</p> {% endcomment %}
+
+{% comment %} {% endif %} {% endcomment %}
+{% endblock nota %}

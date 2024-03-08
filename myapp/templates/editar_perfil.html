@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block body %}
+
+<h1>Editar Perfil</h1>
+<h1>De {{usuario}}</h1>
+
+<form action="" method="POST">
+  {% csrf_token %}
+ <table>
+
+    {{ miFormulario }}
+
+ </table>
+
+ <input type="submit", value="Enviar">
+
+</form>
+</br>
+<button type='button'>
+  <a class="navbar-brand" href="{% url 'CambiarClave' %}">Cambiar clave</a>
+</button>
+
+{% endblock body %}

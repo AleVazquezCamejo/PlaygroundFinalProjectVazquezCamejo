@@ -7,14 +7,14 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Clean Blog - Start Bootstrap Theme</title>
-        <link rel="icon" type="image/x-icon" href="{% static 'myapp/assets/favicon.ico' %}" />
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'myapp/css/styles.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
@@ -31,13 +31,13 @@
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/myapp/About">About</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/myapp/Post">Sample Post</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/myapp/Contact">Contact</a></li>
-                        {% comment %} {% if user.is_authenticated %} {% endcomment %}
+                        {% if user.is_authenticated %}
 
                          <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/myapp/Logout">Logout</a></li>
-                        {% comment %} {% else %} {% endcomment %}
+                         {% else %} 
 
                          <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/myapp/Login">Login</a></li>
-                        {% comment %} {% endif %} {% endcomment %}
+                        {% endif %} 
                     </ul>
                 </div>
             </div>
@@ -70,46 +70,39 @@
                         <p class="post-meta">
                             Posted by
                             <a href="#!">El Economista</a>
-                            on March 6, 2023
+                            on March 6, 2024
                         </p>
                     </div>
+                    <!-- Divider-->
+                    {% comment %} <hr class="my-4" /> {% endcomment %}
+                    <!-- Post preview-->
+                    
                     <!-- Divider-->
                     <hr class="my-4" />
                     <!-- Post preview-->
                     <div class="post-preview">
-                        <a href="post.html"><h2 class="post-title">I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</h2></a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 18, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Science has not yet mastered prophecy</h2>
-                            <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3>
+                        <a href="/myapp/Post2">
+                            <h2 class="post-title">El mercado clave que llevó a Microsoft a ser la empresa más grande del mundo</h2>
+                            <h3 class="post-subtitle">Hace sólo 15 años, la tecnológica estaba en el puesto 35 de las empresas más grandes del mundo. De hecho, sus acciones colapsaron un 75% entre el 2000 y el 2009.</h3>
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">El Economista</a>
-                            on August 24, 2023
+                            <a href="#!">Dolar Hoy</a>
+                            on March 6, 2024
                         </p>
                     </div>
                     <!-- Divider-->
                     <hr class="my-4" />
                     <!-- Post preview-->
                     <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Failure is not an option</h2>
-                            <h3 class="post-subtitle">Many say exploration is part of our destiny, but it’s actually our duty to future generations.</h3>
+                        <a href="/myapp/Post3">
+                            <h2 class="post-title">Lagarde, implacable: Habrá tipos restrictivos "el tiempo que sea necesario"</h2>
+                            <h3 class="post-subtitle">"El Consejo de Gobierno está decidido a garantizar que la inflación regrese oportunamente a su objetivo de mediano plazo del 2%. Sobre la base de su...</h3>
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on July 8, 2023
+                            <a href="#!">Investing</a>
+                            on March 6, 2024
                         </p>
                     </div>
                     <!-- Divider-->

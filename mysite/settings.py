@@ -126,5 +126,5 @@ STATICFILES_DIRS = [BASE_DIR / 'myapp/static/']
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #para los decoradores y el mixim
-LOGIN_URL = 'myapp/Login'
+LOGIN_URL = 'Login'
 LOGOUT_REDIRECT ='myapp/Logout'
