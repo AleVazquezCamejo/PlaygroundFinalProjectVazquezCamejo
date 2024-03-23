@@ -3,7 +3,7 @@ from django.http import HttpResponse
 #para login
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, authenticate, logout
-from myapp.forms import UserCreationFormCustom
+from myapp.forms import UserCreationFormCustom, MensajeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from myapp import forms, models
@@ -21,6 +21,9 @@ def about(request):
 
 def base(request):
     return render(request, 'base.html')
+
+def dolar(request):
+    return render(request, 'dolar.html')
 
 
 @login_required
@@ -73,6 +76,11 @@ def registro(request):
        return render(request, "registro.html", {"form": form})
    
    
+def info_usuario(request):
+    user = request.user
+    return render(request, "info_usuario.html", {'user': user})
+   
+   
 def logout_view(request):
     if request.method == "POST":
         logout(request)
@@ -103,3 +111,18 @@ def editarPerfil(request):
 class CambiarClave(LoginRequiredMixin, PasswordChangeView):
     template_name = 'AppCoder/cambiar_clave.html'
     success_url = reverse_lazy('EditarPerfil')
+    
+    
+def dejar_mensaje(request):
+    form = MensajeForm()
+    if request.method == 'POST':
+        form = MensajeForm(request.POST)
+        if form.is_valid():
+            mensaje = form.save(commit=False)
+            mensaje.usuario = request.user
+            mensaje.save()
+            return render(request, "index_mensaje.html", {"mensaje": "Tu mensaje ha sido enviado"})
+        else:
+            form = MensajeForm()
+    return render(request, "contact.html", {'form': form})
+

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block body %}
+
+<h1>Informacion del Usuario</h1>
+
+<p>Nombre de usuario: {{ user.username }}</p>
+<p>Correo electronico: {{ user.email }}</p>
+<p>imagen: <img src={{request.user.avatar.imagen.url}} height='100px'> </p>
+<button type='button'>
+    <a class="navbar-brand" href="EditarPerfil">Editar Perfil</a>
+  </button>
+
+{% endblock body %}

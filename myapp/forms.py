@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserModel, UserChangeForm
 from django.contrib.auth.models import User
-
+from .models import Mensaje
 
 
 class UserCreationFormCustom(UserCreationForm):
@@ -27,3 +27,14 @@ class UserEditForm(UserChangeForm):
     class Meta:
         model = User
         fields = ['email', 'last_name', 'first_name', 'imagen']      
+        
+
+class MensajeForm(forms.ModelForm):
+  class Meta:
+    model = Mensaje
+    fields = ['nombre', 'email', 'phone', 'contenido']
+    
+  nombre = forms.CharField(max_length=100)
+  phone = forms.CharField(max_length=12)
+  email = forms.EmailField()
+  

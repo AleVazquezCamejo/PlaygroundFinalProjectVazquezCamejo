@@ -20,7 +20,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                {% comment %} <a class="navbar-brand" href="index.html">Start Bootstrap</a> {% endcomment %}
+                <a class="navbar-brand" href="InfoUsuario">{{user.username}}</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -28,9 +28,10 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/myapp/Index">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/myapp/Dolar">Dolar</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/myapp/About">About</a></li>
                         {% if user.is_authenticated %}
-                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/myapp/EditarPerfil">Editar Perfil</a></li>
+                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/myapp/Contact">Contact me</a></li>
                          {% comment %} <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/myapp/Contact">Contact</a></li> {% endcomment %}
                         
 
@@ -38,9 +39,18 @@
                          {% else %} 
 
                          <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/myapp/Login">Login</a></li>
+                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/myapp/Registro">Registro</a></li>
+
                         {% endif %}
                         {% if request.user.avatar %}
-                          <img src="{{request.user.avatar.imagen.url}}" alt="" height="40px">
+                          <button type="button" style="width: 60px; height:60px; padding: 0;">
+                            
+                            <a href="/myapp/InfoUsuario" style="display: inline-block; width: 100%; height: 100%;">
+                              <img src="{{request.user.avatar.imagen.url}}" alt="" style="width: 100%; height: 100%;"/>
+                            </a>  
+
+                          </button>
+
                         {% endif %}
                     </ul>
                 </div>
@@ -59,6 +69,46 @@
                 </div>
             </div>
         </header>
+        <!-- barra cotizaciones-->
+        <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+    "symbols": [
+      {
+        "proName": "FOREXCOM:SPXUSD",
+        "title": "S&P 500 Index"
+      },
+      {
+        "proName": "FOREXCOM:NSXUSD",
+        "title": "US 100 Cash CFD"
+      },
+      {
+        "proName": "FX_IDC:EURUSD",
+        "title": "EUR to USD"
+      },
+      {
+        "proName": "BITSTAMP:BTCUSD",
+        "title": "Bitcoin"
+      },
+      {
+        "proName": "BITSTAMP:ETHUSD",
+        "title": "Ethereum"
+      }
+    ],
+    "showSymbolLogo": true,
+    "isTransparent": false,
+    "displayMode": "adaptive",
+    "colorTheme": "light",
+    "locale": "en"
+  }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+
+        <!-- barra cotizaciones final-->
         {% block mensaje %}
         {% endblock mensaje %}
         <!-- Main Content-->
@@ -73,7 +123,7 @@
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">El Economista</a>
+                            <a href="https://eleconomista.com.ar/">El Economista</a>
                             on March 6, 2024
                         </p>
                     </div>
@@ -91,7 +141,7 @@
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">Dolar Hoy</a>
+                            <a href="https://dolarhoy.com/">Dolar Hoy</a>
                             on March 6, 2024
                         </p>
                     </div>
@@ -105,7 +155,7 @@
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">Investing</a>
+                            <a href="https://www.investing.com/">Investing</a>
                             on March 6, 2024
                         </p>
                     </div>
@@ -121,7 +171,7 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <ul class="list-inline text-center">
+                        {% comment %} <ul class="list-inline text-center">
                             <li class="list-inline-item">
                                 <a href="#!">
                                     <span class="fa-stack fa-lg">
@@ -146,7 +196,7 @@
                                     </span>
                                 </a>
                             </li>
-                        </ul>
+                        </ul> {% endcomment %}
                         <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2023</div>
                     </div>
                 </div>
