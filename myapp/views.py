@@ -42,6 +42,22 @@ def post2(request):
 def post3(request):
     return render(request, 'post3.html')
 
+@login_required
+def olderPost(request):
+    return render(request, 'olderPost.html')
+
+@login_required
+def post1older(request):
+    return render(request, 'post1older.html')
+
+@login_required
+def post2older(request):
+    return render(request, 'post2older.html')
+
+@login_required
+def post3older(request):
+    return render(request, 'post3older.html')
+
 
 def contact(request):
     return render(request, 'contact.html')
@@ -109,7 +125,7 @@ def editarPerfil(request):
 
 
 class CambiarClave(LoginRequiredMixin, PasswordChangeView):
-    template_name = 'AppCoder/cambiar_clave.html'
+    template_name = 'cambiar_clave.html'
     success_url = reverse_lazy('EditarPerfil')
     
     
